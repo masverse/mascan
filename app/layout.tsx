@@ -16,7 +16,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <div className="min-h-screen fixed -z-10 min-w-full bg-gradient-to-r from-[#399ad5] to-[#2c2c6e]"></div>
+      <h1 className="text-4xl md:text-7xl font-bold pt-24 text-center text-white">
+        MASCHAIN EXPLORER
+      </h1>
+        {children}
+        </body>
     </html>
   );
 }
