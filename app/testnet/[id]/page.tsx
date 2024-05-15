@@ -1,7 +1,7 @@
 
 export default async function Page({ params }: { params: { id: string } }) {
     async function search() {
-        const res = await fetch(`${process.env.NEXT_MAINNET_FETCH_URL}${params.id}`)
+        const res = await fetch(`${process.env.NEXT_TESTNET_FETCH_URL}${params.id}`)
         if (!res.ok) {
             throw new Error('Failed to fetch data')
         }
@@ -15,7 +15,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         <>
             <div className="flex flex-col items-center w-full">
                 <div className="w-full px-10 md:px-24 lg:px-56">
-                    <p className="text-xl md:text-3xl font-bold mt-8 md:mt-16 text-white">Transaction Details</p>
+                    <p className="text-xl md:text-3xl font-bold mt-8 md:mt-16 text-white">Transaction Details ( TESTNET )</p>
                     <div className="rounded-3xl flex flex-col items-center mt-8 py-8 px-4 h-fit border-0 border-gray-200 break-all text-white bg-white/30 backdrop-blur-md text-[13px] md:text-[17px]">
                         <div className="flex font-semibold w-full gap-4 p-4">
                             <p className="flex justify-start w-[150px] md:w-[180px]">TX ID:</p>
@@ -61,7 +61,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                     <div className="text-[13px] md:text-[16px] rounded-2xl flex flex-col items-center mt-8 h-fit border-0 border-gray-200 break-all text-white bg-white/30 backdrop-blur-md mb-24">
                         <div className="flex font-semibold w-full px-5 py-4 md:px-8 justify-between items-center gap-6">
                             <p className="flex justify-start break-normal">You're able to request for access. Click here to request for access</p>
-                            <button className="bg-gray-300 outline-none text-[#8b8b8b] rounded-lg md:px-5 md:py-2 px-2 py-2 w-fit break-keep cursor-not-allowed before:content-['Request'] hover:before:content-['Coming_Soon!']">Request</button>
+                            <button className="bg-gray-300 outline-none text-[#8b8b8b] rounded-lg md:px-5 md:py-2 px-2 py-2 w-fit break-keep cursor-not-allowed before:content-['Request'] hover:before:content-['Coming_Soon!']"></button>
                         </div>
 
                     </div>
