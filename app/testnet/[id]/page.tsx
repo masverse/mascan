@@ -1,11 +1,15 @@
 
 export default async function Page({ params }: { params: { id: string } }) {
     async function search() {
-        const res = await fetch(`${process.env.NEXT_TESTNET_FETCH_URL}${params.id}`)
-        if (!res.ok) {
-            throw new Error('Failed to fetch data')
+        try {
+            const res = await fetch(`${process.env.NEXT_TESTNET_FETCH_URL}${params.id}`)
+            if (!res.ok) {
+                throw new Error('Failed to fetch data')
+            }
+            return res.json()
+        } catch (error) {
+            console.log("Failed to fetch data, error:", error)
         }
-        return res.json()
     }
 
     const { timestamp, hash, block, result, from } = await search();
