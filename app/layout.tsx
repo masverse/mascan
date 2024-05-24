@@ -11,7 +11,7 @@ const exo = Exo_2({
 });
 
 export const metadata: Metadata = {
-  title: "Mascan Explorer",
+  title: "MasChain Explorer",
   description: "MasChain Block Explorer",
 };
 
