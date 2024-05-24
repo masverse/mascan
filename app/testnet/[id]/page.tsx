@@ -9,10 +9,25 @@ export default async function Page({ params }: { params: { id: string } }) {
             return res.json()
         } catch (error) {
             console.log("Failed to fetch data, error:", error)
+            return null
         }
     }
 
-    const { timestamp, hash, block, result, from } = await search();
+    const info = await search();
+    if (!info) {
+        return (
+            <div className="flex flex-col items-center w-full">
+                <div className="w-full px-10 md:px-24 lg:px-56">
+                    <p className="text-xl md:text-3xl font-bold mt-8 md:mt-16 text-white">Transaction Details</p>
+                    <div className="rounded-3xl flex flex-col items-center mt-8 py-8 px-4 h-fit border-0 border-gray-200 break-all text-white bg-white/30 backdrop-blur-md text-[13px] md:text-[17px]">
+                        <p className=" font-semibold text-[25px]">Failed to fetch transaction details. Please try again later.</p>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    const { timestamp, hash, block, result, from } = info
     const date = new Date(timestamp);
 
     return (
