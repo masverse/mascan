@@ -60,7 +60,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                         <div className="flex font-semibold w-full gap-4 p-4">
                             <p className="flex justify-start w-[150px] md:w-[180px] break-normal">Timestamp:</p>
                             <p className="flex w-full justify-start">
-                                {date.toString()}
+                                {date.toLocaleString()}
                             </p>
                         </div>
                         <div className="flex font-semibold w-full gap-4 p-4">
@@ -80,7 +80,14 @@ export default async function Page({ params }: { params: { id: string } }) {
                     <div className="text-[13px] md:text-[16px] rounded-2xl flex flex-col items-center mt-8 h-fit border-0 border-gray-200 break-all text-white bg-white/30 backdrop-blur-md mb-24">
                         <div className="flex font-semibold w-full px-5 py-4 md:px-8 justify-between items-center gap-6">
                             <p className="flex justify-start break-normal">You're able to request for access. Click here to request for access</p>
-                            <button className="bg-gray-300 outline-none text-[#8b8b8b] rounded-lg md:px-5 md:py-2 px-2 py-2 w-fit break-keep cursor-not-allowed before:content-['Request'] hover:before:content-['Coming_Soon!']">Request</button>
+                            <div className="relative group">
+                                <button type="button"
+                                    className="bg-gray-300 outline-none text-[#8b8b8b] rounded-lg md:px-5 md:py-2 px-2 py-2 w-fit break-keep cursor-not-allowed">Coming Soon
+                                </button>
+                                <div
+                                    className="absolute shadow-lg hidden group-hover:block bg-[#333] text-white font-semibold px-3 py-[6px] text-[13px] right-0 left-0 mx-auto w-max -top-10 rounded">
+                                    Coming Soon!</div>
+                            </div>
                         </div>
 
                     </div>
